@@ -21,8 +21,8 @@ rhoW = 1025  # density of sea water(kg m^-3)
 gammaS = 5.05e-7  # Salinity exchange velocity(m s^-1)
 gammaT = 1.0e-4
 
-Sw = np.linspace(0, 50,1000)
-T_w= np.linspace(-10,10,1000)
+Sw = np.linspace(0, 50,3)
+T_w= np.linspace(-10,10,2)
 levels = np.linspace(0,4,21)
 levels_1 = np.linspace(0,10,21)
 
@@ -42,22 +42,25 @@ Z_pos=(-B+(B**2-4*A*C)**(1/2))/(2*A)
 Z_neg=(-B-(B**2-4*A*C)**(1/2))/(2*A)
 
 ax[0,0].contourf(X, Y, Z_pos)
+ax[0,0].set_title("Salinity of Surface")
 ax[0,0].set_xlabel('Salinity of water(psu)',fontsize=8)
 ax[0,0].set_ylabel('Temperature of water(˚C)',fontsize=8,labelpad=-8)
 fig.colorbar(ax[0,0].contourf(X, Y, Z_pos))
 
-ax[0,1].contourf(X, Y, Z_neg)
+ax[0,1].contourf(X, Y, Z_pos)
+ax[0,1].set_title("Salinity of Surface")
 ax[0,1].set_xlabel('Salinity of water(psu)',fontsize=8)
 ax[0,1].set_ylabel('Temperature of water(˚C)',fontsize=8,labelpad=-8)
 fig.colorbar(ax[0,1].contourf(X, Y, Z_pos,levels=levels))
 
-ax[0,2].contourf(X, Y, Z_neg)
+ax[0,2].contourf(X, Y, Z_pos)
 ax[0,2].set_xlabel('Salinity of water(psu)',fontsize=8)
 ax[0,2].set_ylabel('Temperature of water(˚C)',fontsize=8,labelpad=-8)
 fig.colorbar(ax[0,2].contourf(X, Y, Z_pos,levels=levels_1))
 
 
 ax[1,0].contourf(X, Y, Z_neg)
+ax[1,0].set_title("Salinity of Surface")
 ax[1,0].set_xlabel('Salinity of water(psu)',fontsize=8)
 ax[1,0].set_ylabel('Temperature of water(˚C)',fontsize=8,labelpad=-8)
 fig.colorbar(ax[1,0].contourf(X, Y, Z_neg))
@@ -65,13 +68,19 @@ fig.colorbar(ax[1,0].contourf(X, Y, Z_neg))
 
 
 ax[1,1].contourf(X, Y, Z_neg)
+ax[1,1].set_title("Salinity of Surface")
 ax[1,1].set_xlabel('Salinity of water(psu)',fontsize=8)
 ax[1,1].set_ylabel('Temperature of water(˚C)',fontsize=8,labelpad=-8)
 fig.colorbar(ax[1,1].contourf(X, Y, Z_neg,levels=levels))
 
 ax[1,2].contourf(X, Y, Z_neg)
+ax[1,2].set_title("Salinity of Surface")
 ax[1,2].set_xlabel('Salinity of water(psu)',fontsize=8)
 ax[1,2].set_ylabel('Temperature of water(˚C)',fontsize=8,labelpad=-8)
 fig.colorbar(ax[1,2].contourf(X, Y, Z_neg,levels=levels_1))
+
+print(X)
+print(Y)
+print(Z_pos)
 
 plt.show()
